@@ -3,11 +3,13 @@ name: Monitor Diario Oficial
 on:
   schedule:
     - cron: '30 13 * * 1-5'  # 10:30 AM Chile (UTC-3), lunes a viernes
-  workflow_dispatch:           # permite correrlo manualmente desde GitHub
+  workflow_dispatch:
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repositorio
@@ -42,3 +44,9 @@ jobs:
         with:
           path: publicaciones_vistas.json
           key: publicaciones-vistas-${{ github.run_id }}
+
+      - name: Publicar cambios en GitHub Pages
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Monitor: actualizar publicaciones.json"
+          file_pattern: docs/publicaciones.json
