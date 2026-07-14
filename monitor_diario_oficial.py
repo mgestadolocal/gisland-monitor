@@ -13,45 +13,23 @@ import requests
 from bs4 import BeautifulSoup
 
 CONFIG = {
-    # Credenciales desde variables de entorno (GitHub Secrets)
     "gmail_usuario":  os.environ.get("GMAIL_USUARIO", ""),
     "gmail_password": os.environ.get("GMAIL_PASSWORD", ""),
     "email_destino":  os.environ.get("EMAIL_DESTINO", ""),
-
     "palabras_clave": [
-        "humedal",
-        "area silvestre protegida",
-        "área silvestre protegida",
-        "parque nacional",
-        "reserva nacional",
-        "monumento natural",
-        "santuario de la naturaleza",
-        "area marina protegida",
-        "área marina protegida",
-        "sitio ramsar",
-        "poligono",
-        "polígono",
-        "cartografia",
-        "cartografía",
-        "delimitacion",
-        "delimitación",
-        "snaspe",
-        "sbap",
-        "plan de manejo",
-        "corredor biologico",
-        "corredor biológico",
-        "zona de prohibicion",
-        "zona de prohibición",
-        "aguas subterraneas",
-        "aguas subterráneas",
-        "sector hidrogeologico",
-        "sector hidrogeológico",
-        "recursos hidricos",
+        "humedal", "area silvestre protegida", "área silvestre protegida",
+        "parque nacional", "reserva nacional", "monumento natural",
+        "santuario de la naturaleza", "area marina protegida", "área marina protegida",
+        "sitio ramsar", "poligono", "polígono", "cartografia", "cartografía",
+        "delimitacion", "delimitación", "snaspe", "sbap", "plan de manejo",
+        "corredor biologico", "corredor biológico", "zona de prohibicion",
+        "zona de prohibición", "aguas subterraneas", "aguas subterráneas",
+        "sector hidrogeologico", "sector hidrogeológico", "recursos hidricos",
         "recursos hídricos",
     ],
-
-    "archivo_vistos": "publicaciones_vistas.json",
-    "archivo_log":    "monitor.log",
+    "archivo_vistos":        "publicaciones_vistas.json",
+    "archivo_publicaciones": "docs/publicaciones.json",
+    "archivo_log":           "monitor.log",
 }
 
 logging.basicConfig(
@@ -80,6 +58,20 @@ def guardar_vistos(vistos: set):
         json.dump(list(vistos), f, ensure_ascii=False, indent=2)
 
 
+def cargar_publicaciones() -> list:
+    p = Path(CONFIG["archivo_publicaciones"])
+    if p.exists():
+        with open(p, encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+def guardar_publicaciones(publicaciones: list):
+    Path("docs").mkdir(exist_ok=True)
+    with open(CONFIG["archivo_publicaciones"], "w", encoding="utf-8") as f:
+        json.dump(publicaciones, f, ensure_ascii=False, indent=2)
+
+
 def id_pub(url: str) -> str:
     return hashlib.md5(url.encode()).hexdigest()
 
@@ -95,7 +87,6 @@ def obtener_urls_del_dia(fecha: date) -> list:
 
     soup = BeautifulSoup(r.text, "html.parser")
     urls, vistos_set = [], set()
-
     for a in soup.find_all("a", href=True):
         href = a["href"]
         if not re.search(r"/publicaciones/\d{4}/\d{2}/\d{2}/\d+/\d+/\d+", href):
@@ -113,9 +104,7 @@ def extraer_titulo_y_texto(url: str) -> tuple:
     try:
         from pypdf import PdfReader
     except ImportError:
-        log.error("Falta pypdf.")
         return "", ""
-
     try:
         r = requests.get(url, headers=HEADERS, timeout=30)
         r.raise_for_status()
@@ -132,12 +121,9 @@ def extraer_titulo_y_texto(url: str) -> tuple:
 
 
 def extraer_titulo_del_texto(texto: str) -> str:
-    patron_encabezado = r"CVE \d+.*?(?:ORDEN GENERAL|ORDEN PARTICULAR|AVISOS)\s*"
-    texto_limpio = re.sub(patron_encabezado, "", texto, flags=re.DOTALL | re.IGNORECASE)
-    m = re.search(
-        r"((?:[A-ZÁÉÍÓÚÜÑ][A-ZÁÉÍÓÚÜÑ\s\d°\.,\(\)\-\/Nº]+){3,})",
-        texto_limpio
-    )
+    patron = r"CVE \d+.*?(?:ORDEN GENERAL|ORDEN PARTICULAR|AVISOS)\s*"
+    texto_limpio = re.sub(patron, "", texto, flags=re.DOTALL | re.IGNORECASE)
+    m = re.search(r"((?:[A-ZÁÉÍÓÚÜÑ][A-ZÁÉÍÓÚÜÑ\s\d°\.,\(\)\-\/Nº]+){3,})", texto_limpio)
     if m:
         return " ".join(m.group(1).split())[:250]
     lineas = [l.strip() for l in texto_limpio.splitlines() if len(l.strip()) > 20]
@@ -150,10 +136,7 @@ def es_relevante(texto: str) -> list:
 
 
 def enviar_email(publicaciones: list):
-    asunto = (
-        f"GisLand.cl | {len(publicaciones)} nueva(s) publicacion(es) "
-        f"en el Diario Oficial - {date.today().strftime('%d/%m/%Y')}"
-    )
+    asunto = f"GisLand.cl | {len(publicaciones)} nueva(s) publicacion(es) en el Diario Oficial - {date.today().strftime('%d/%m/%Y')}"
     filas = ""
     for pub in publicaciones:
         kws   = ", ".join(pub.get("keywords", []))
@@ -161,24 +144,17 @@ def enviar_email(publicaciones: list):
         filas += f"""
         <tr>
           <td style="padding:10px 8px;border-bottom:1px solid #eee;">
-            <a href="{pub['url']}" style="color:#1a6b3a;font-weight:bold;text-decoration:none;">
-              {titulo[:200]}
-            </a><br>
-            <small style="color:#888;">
-              Fecha: {pub['fecha']} | Palabras clave: <em>{kws}</em>
-            </small>
+            <a href="{pub['url']}" style="color:#1a6b3a;font-weight:bold;text-decoration:none;">{titulo[:200]}</a><br>
+            <small style="color:#888;">Fecha: {pub['fecha']} | Palabras clave: <em>{kws}</em></small>
           </td>
         </tr>"""
 
     html = f"""<html><body style="font-family:Arial,sans-serif;background:#f9f9f9;">
-      <div style="max-width:680px;margin:30px auto;background:#fff;padding:30px;
-                  border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);">
+      <div style="max-width:680px;margin:30px auto;background:#fff;padding:30px;border-radius:8px;">
         <h2 style="color:#1a6b3a;">GisLand.cl — Alerta Diario Oficial</h2>
         <p>{len(publicaciones)} publicacion(es) relevante(s) el {date.today().strftime('%d/%m/%Y')}:</p>
         <table width="100%" cellspacing="0" style="border-collapse:collapse;">{filas}</table>
-        <p style="font-size:12px;color:#aaa;margin-top:24px;">
-          Generado por <a href="https://gisland.cl" style="color:#1a6b3a;">GisLand.cl</a>
-        </p>
+        <p style="font-size:12px;color:#aaa;margin-top:24px;">Generado por <a href="https://gisland.cl" style="color:#1a6b3a;">GisLand.cl</a></p>
       </div></body></html>"""
 
     msg = MIMEMultipart("alternative")
@@ -201,9 +177,10 @@ def ejecutar():
     log.info("  GisLand Monitor - iniciando revision")
     log.info("=" * 50)
 
-    vistos = cargar_vistos()
-    hoy    = date.today()
-    todas  = []
+    vistos        = cargar_vistos()
+    historial     = cargar_publicaciones()
+    hoy           = date.today()
+    todas         = []
 
     for delta in [0, 1, 2]:
         todas.extend(obtener_urls_del_dia(hoy - timedelta(days=delta)))
@@ -233,8 +210,11 @@ def ejecutar():
 
     if nuevas:
         enviar_email(nuevas)
-    else:
-        log.info("Sin novedades. No se envia correo.")
+        # Agregar al historial (más recientes primero)
+        historial = nuevas + historial
+        # Mantener solo los últimos 500 registros
+        historial = historial[:500]
+        guardar_publicaciones(historial)
 
     guardar_vistos(vistos)
     log.info("Revision finalizada.\n")
