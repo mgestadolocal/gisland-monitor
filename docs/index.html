@@ -16,330 +16,102 @@
       --borde:      #e2ddd5;
       --texto:      #1a1a1a;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--fondo); color: var(--texto); min-height: 100vh; }
 
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
-      min-height: 100vh;
-    }
-
-    /* HEADER */
     header {
-      background: var(--verde);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background: var(--verde); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 10;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--tierra);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--verde);
+      width: 32px; height: 32px; background: var(--tierra); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--verde);
     }
-
-    .logo-text {
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-      letter-spacing: -0.3px;
-    }
-
-    .logo-sub {
-      font-size: 12px;
-      color: rgba(255,255,255,0.6);
-      font-family: 'Space Mono', monospace;
-    }
-
+    .logo-text { font-size: 18px; font-weight: 700; color: white; letter-spacing: -0.3px; }
+    .logo-sub  { font-size: 12px; color: rgba(255,255,255,0.6); font-family: 'Space Mono', monospace; }
     .header-badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--tierra);
-      border: 1px solid var(--tierra);
-      padding: 4px 10px;
-      border-radius: 20px;
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      color: var(--tierra); border: 1px solid var(--tierra); padding: 4px 10px; border-radius: 20px;
     }
 
-    /* HERO */
     .hero {
-      background: var(--verde);
-      padding: 3rem 2rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      background: var(--verde); padding: 3rem 2rem 4rem; text-align: center;
+      position: relative; overflow: hidden;
     }
-
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.02) 40px,
-        rgba(255,255,255,0.02) 80px
-      );
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 80px);
     }
+    .hero-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--tierra); margin-bottom: 1rem; }
+    .hero h1   { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: white; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1rem; position: relative; }
+    .hero p    { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.6; }
+    .stats     { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; position: relative; }
+    .stat      { text-align: center; }
+    .stat-num  { font-family: 'Space Mono', monospace; font-size: 2rem; font-weight: 700; color: var(--tierra); line-height: 1; }
+    .stat-label{ font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
-    .hero-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--tierra);
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 700;
-      color: white;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    .hero p {
-      color: rgba(255,255,255,0.7);
-      font-size: 1rem;
-      max-width: 480px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      position: relative;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--tierra);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-      margin-top: 4px;
-    }
-
-    /* FILTROS */
     .filtros {
-      background: white;
-      border-bottom: 1px solid var(--borde);
-      padding: 1rem 2rem;
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      align-items: center;
-      position: sticky;
-      top: 64px;
-      z-index: 9;
+      background: white; border-bottom: 1px solid var(--borde);
+      padding: 1rem 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;
+      align-items: center; position: sticky; top: 64px; z-index: 9;
     }
-
-    .filtro-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--gris);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-right: 4px;
-    }
-
+    .filtro-label { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
     .filtro-btn {
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--borde);
-      background: white;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      cursor: pointer;
-      color: var(--gris);
-      transition: all 0.15s;
+      padding: 6px 14px; border-radius: 20px; border: 1px solid var(--borde);
+      background: white; font-family: 'Space Grotesk', sans-serif; font-size: 13px;
+      cursor: pointer; color: var(--gris); transition: all 0.15s;
     }
-
-    .filtro-btn:hover, .filtro-btn.activo {
-      background: var(--verde);
-      color: white;
-      border-color: var(--verde);
-    }
-
+    .filtro-btn:hover, .filtro-btn.activo { background: var(--verde); color: white; border-color: var(--verde); }
     #buscador {
-      margin-left: auto;
-      padding: 6px 14px;
-      border: 1px solid var(--borde);
-      border-radius: 20px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      outline: none;
-      width: 220px;
-      transition: border-color 0.15s;
+      margin-left: auto; padding: 6px 14px; border: 1px solid var(--borde);
+      border-radius: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 13px;
+      outline: none; width: 220px; transition: border-color 0.15s;
     }
-
     #buscador:focus { border-color: var(--verde); }
 
-    /* CONTENIDO */
-    .contenido {
-      max-width: 860px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
+    .contenido { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
 
-    /* DÍA */
-    .dia-grupo {
-      margin-bottom: 2rem;
-    }
+    .dia-grupo  { margin-bottom: 2rem; }
+    .dia-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .dia-fecha  { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--verde); background: rgba(26,92,53,0.08); padding: 4px 12px; border-radius: 4px; white-space: nowrap; }
+    .dia-linea  { flex: 1; height: 1px; background: var(--borde); }
+    .dia-count  { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gris); }
 
-    .dia-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .dia-fecha {
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--verde);
-      background: rgba(26,92,53,0.08);
-      padding: 4px 12px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-
-    .dia-linea {
-      flex: 1;
-      height: 1px;
-      background: var(--borde);
-    }
-
-    .dia-count {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--gris);
-    }
-
-    /* CARD */
     .card {
-      background: white;
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 0.75rem;
+      background: white; border: 1px solid var(--borde); border-radius: 10px;
+      padding: 1.25rem 1.5rem; margin-bottom: 0.75rem;
       transition: box-shadow 0.15s, border-color 0.15s;
-      display: block;
-      text-decoration: none;
-      color: inherit;
+      text-decoration: none; color: inherit; display: block;
     }
-
-    .card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      border-color: var(--verde-claro);
-    }
-
-    .card-titulo {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--verde);
-      line-height: 1.4;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--verde-claro); }
+    .card-titulo { font-size: 15px; font-weight: 600; color: var(--verde); line-height: 1.4; margin-bottom: 0.75rem; }
+    .card-meta   { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
     .tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: rgba(200,169,110,0.15);
-      color: #7a5c20;
-      text-transform: lowercase;
-      white-space: nowrap;
+      font-family: 'Space Mono', monospace; font-size: 10px; padding: 3px 8px;
+      border-radius: 4px; background: rgba(200,169,110,0.15); color: #7a5c20;
+      text-transform: lowercase; white-space: nowrap;
     }
-
-    .card-link {
-      margin-left: auto;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--gris);
-      display: flex;
-      align-items: center;
-      gap: 4px;
+    .tag-geo {
+      font-family: 'Space Mono', monospace; font-size: 10px; padding: 3px 10px;
+      border-radius: 4px; background: rgba(26,92,53,0.1); color: var(--verde);
+      font-weight: 700; white-space: nowrap; text-decoration: none;
+      border: 1px solid rgba(26,92,53,0.2); transition: all 0.15s;
     }
+    .tag-geo:hover { background: var(--verde); color: white; }
+    .card-link { margin-left: auto; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gris); display: flex; align-items: center; gap: 4px; }
 
-    /* VACÍO */
-    .vacio {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--gris);
-    }
+    .vacio       { text-align: center; padding: 4rem 2rem; color: var(--gris); }
+    .vacio-icon  { font-size: 3rem; margin-bottom: 1rem; }
+    .vacio h3    { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--texto); }
+    .vacio p     { font-size: 14px; }
 
-    .vacio-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .vacio h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--texto); }
-    .vacio p  { font-size: 14px; }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--borde);
-      padding: 2rem;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--gris);
-      margin-top: 3rem;
-    }
-
+    footer { border-top: 1px solid var(--borde); padding: 2rem; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gris); margin-top: 3rem; }
     footer a { color: var(--verde); text-decoration: none; }
 
-    /* LOADING */
-    .loading {
-      text-align: center;
-      padding: 4rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      color: var(--gris);
-    }
+    .loading { text-align: center; padding: 4rem; font-family: 'Space Mono', monospace; font-size: 13px; color: var(--gris); }
 
     @media (max-width: 600px) {
       .stats { gap: 1.5rem; }
@@ -366,18 +138,10 @@
   <h1>Diario Oficial<br>en tiempo real</h1>
   <p>Monitoreo automático de publicaciones sobre áreas protegidas, humedales, polígonos y cartografía oficial de Chile.</p>
   <div class="stats">
-    <div class="stat">
-      <div class="stat-num" id="stat-total">—</div>
-      <div class="stat-label">publicaciones</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-dias">—</div>
-      <div class="stat-label">días monitoreados</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-keywords">29</div>
-      <div class="stat-label">palabras clave</div>
-    </div>
+    <div class="stat"><div class="stat-num" id="stat-total">—</div><div class="stat-label">publicaciones</div></div>
+    <div class="stat"><div class="stat-num" id="stat-dias">—</div><div class="stat-label">días monitoreados</div></div>
+    <div class="stat"><div class="stat-num" id="stat-geo">—</div><div class="stat-label">GeoJSON generados</div></div>
+    <div class="stat"><div class="stat-num">33</div><div class="stat-label">palabras clave</div></div>
   </div>
 </div>
 
@@ -390,6 +154,7 @@
   <button class="filtro-btn" data-kw="aguas">Aguas</button>
   <button class="filtro-btn" data-kw="polígono">Polígonos</button>
   <button class="filtro-btn" data-kw="utm">UTM</button>
+  <button class="filtro-btn" data-kw="__geo__">🗺 Con GeoJSON</button>
   <input type="text" id="buscador" placeholder="Buscar en títulos...">
 </div>
 
@@ -403,6 +168,7 @@
 </footer>
 
 <script>
+  const BASE_URL = 'https://mgestadolocal.github.io/gisland-monitor/';
   let todasLasPublicaciones = [];
   let filtroActivo = '';
   let busqueda = '';
@@ -425,21 +191,23 @@
 
   function actualizarStats() {
     const dias = [...new Set(todasLasPublicaciones.map(p => p.fecha))];
+    const geos = todasLasPublicaciones.filter(p => p.geojson).length;
     document.getElementById('stat-total').textContent = todasLasPublicaciones.length;
     document.getElementById('stat-dias').textContent  = dias.length;
+    document.getElementById('stat-geo').textContent   = geos;
   }
 
   function renderizar() {
     let pubs = todasLasPublicaciones;
 
-    // Filtro por keyword
-    if (filtroActivo) {
+    if (filtroActivo === '__geo__') {
+      pubs = pubs.filter(p => p.geojson);
+    } else if (filtroActivo) {
       pubs = pubs.filter(p =>
         (p.keywords || []).some(k => k.includes(filtroActivo))
       );
     }
 
-    // Filtro por búsqueda
     if (busqueda) {
       const q = busqueda.toLowerCase();
       pubs = pubs.filter(p =>
@@ -458,7 +226,6 @@
       return;
     }
 
-    // Agrupar por fecha
     const porFecha = {};
     pubs.forEach(p => {
       if (!porFecha[p.fecha]) porFecha[p.fecha] = [];
@@ -483,12 +250,17 @@
 
       items.forEach(pub => {
         const titulo = pub.titulo || 'Sin título';
-        const tags = (pub.keywords || []).map(k => `<span class="tag">${k}</span>`).join('');
+        const tags   = (pub.keywords || []).map(k => `<span class="tag">${k}</span>`).join('');
+        const geoBtn = pub.geojson
+          ? `<a class="tag-geo" href="${BASE_URL}${pub.geojson}" download onclick="event.stopPropagation()">⬇ GeoJSON (${pub.vertice_count || '?'} vértices)</a>`
+          : '';
+
         html += `
           <a class="card" href="${pub.url}" target="_blank" rel="noopener">
             <div class="card-titulo">${titulo}</div>
             <div class="card-meta">
               ${tags}
+              ${geoBtn}
               <span class="card-link">Ver PDF →</span>
             </div>
           </a>`;
@@ -500,7 +272,6 @@
     document.getElementById('contenido').innerHTML = html;
   }
 
-  // Filtros
   document.querySelectorAll('.filtro-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
@@ -510,7 +281,6 @@
     });
   });
 
-  // Buscador
   document.getElementById('buscador').addEventListener('input', e => {
     busqueda = e.target.value.trim();
     renderizar();
