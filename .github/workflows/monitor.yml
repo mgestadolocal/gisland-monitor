@@ -1,0 +1,44 @@
+name: Monitor Diario Oficial
+
+on:
+  schedule:
+    - cron: '30 13 * * 1-5'  # 10:30 AM Chile (UTC-3), lunes a viernes
+  workflow_dispatch:           # permite correrlo manualmente desde GitHub
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Restaurar historial de publicaciones vistas
+        uses: actions/cache@v4
+        with:
+          path: publicaciones_vistas.json
+          key: publicaciones-vistas-${{ github.run_id }}
+          restore-keys: |
+            publicaciones-vistas-
+
+      - name: Ejecutar monitor
+        env:
+          GMAIL_USUARIO:  ${{ secrets.GMAIL_USUARIO }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+          EMAIL_DESTINO:  ${{ secrets.EMAIL_DESTINO }}
+        run: python monitor_diario_oficial.py
+
+      - name: Guardar historial actualizado
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: publicaciones_vistas.json
+          key: publicaciones-vistas-${{ github.run_id }}
