@@ -48,5 +48,5 @@ jobs:
       - name: Publicar cambios en GitHub Pages
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Monitor: actualizar publicaciones.json"
-          file_pattern: docs/publicaciones.json
+          commit_message: "Monitor: actualizar publicaciones y GeoJSON"
+          file_pattern: docs/publicaciones.json docs/shapes/*.geojson
