@@ -90,6 +90,36 @@
     ]
   },
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/24/44507/01/2838852.pdf",
+    "fecha": "2026-07-24",
+    "titulo": "CVE 2838852 MINISTERIO DEL INTERIOR D",
+    "keywords": [
+      "cartografía",
+      "coordenadas"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/24/44507/01/2841813.pdf",
+    "fecha": "2026-07-24",
+    "titulo": "CVE 2841813 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2841813.geojson",
+    "vertice_count": 4
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/24/44507/01/2842835.pdf",
+    "fecha": "2026-07-24",
+    "titulo": "I SECCIÓN LEYES, REGLAMENTOS, DECRETOS Y RESOLUCIONES DE ORDEN GENERAL N",
+    "keywords": [
+      "delimitación"
+    ]
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/22/44505/01/2843026.pdf",
     "fecha": "2026-07-22",
     "titulo": "CVE 2843026 MINISTERIO DE HACIENDA DETERMINA EL COMPONENTE VARIABLE PARA EL CÁLCULO DEL IMPUESTO ESPECÍFICO ESTABLECIDO EN LA LEY N° 18.502 N",
