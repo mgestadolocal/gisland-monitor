@@ -45,10 +45,6 @@ BASE    = "https://www.diariooficial.interior.gob.cl"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; GisLandMonitor/1.0)"}
 
 
-# ─────────────────────────────────────────────
-#  PERSISTENCIA
-# ─────────────────────────────────────────────
-
 def cargar_vistos() -> set:
     p = Path(CONFIG["archivo_vistos"])
     if p.exists():
@@ -79,10 +75,6 @@ def guardar_publicaciones(publicaciones: list):
 def id_pub(url: str) -> str:
     return hashlib.md5(url.encode()).hexdigest()
 
-
-# ─────────────────────────────────────────────
-#  SCRAPING
-# ─────────────────────────────────────────────
 
 def obtener_urls_del_dia(fecha: date) -> list:
     url = f"{BASE}/edicionelectronica/index.php?date={fecha.strftime('%d-%m-%Y')}"
@@ -120,7 +112,7 @@ def extraer_titulo_y_texto(url: str) -> tuple:
         p1 = reader.pages[0].extract_text() or ""
         titulo = extraer_titulo_del_texto(p1)
         texto_completo = p1
-        for i in range(1, len(reader.pages)):  # leer TODAS las páginas para UTM
+        for i in range(1, len(reader.pages)):
             texto_completo += " " + (reader.pages[i].extract_text() or "")
         return titulo, texto_completo
     except Exception as e:
@@ -143,46 +135,60 @@ def es_relevante(texto: str) -> list:
     return [kw for kw in CONFIG["palabras_clave"] if kw in t]
 
 
-# ─────────────────────────────────────────────
-#  EXTRACCIÓN UTM → GEOJSON
-# ─────────────────────────────────────────────
-
 def extraer_vertice_utm(texto: str) -> list:
     """
     Extrae vértices UTM del texto del PDF.
-    Soporta el formato tabla del DO:
-      N° VÉRTICE  ESTE (X)  NORTE (Y)
-      1            337883    6290596
+    Soporta dos formatos del DO:
+
+    Formato A (huso en encabezado):
+      DATUM WGS84 HUSO19
+      1  337883  6290596
+      2  337806  6289816
+
+    Formato B (huso por fila):
+      1  632024  5721309  18
+      2  687478  5708811  18
     """
-    # Detectar huso (por defecto 19)
-    huso = 19
+    # Huso global en encabezado (fallback)
+    huso_global = 19
     m_huso = re.search(r"HUSO\s*(\d{1,2})", texto, re.IGNORECASE)
     if m_huso:
-        huso = int(m_huso.group(1))
+        huso_global = int(m_huso.group(1))
 
-    # Buscar filas de la tabla: número_vertice  este  norte
-    # Formato: dígitos (índice) seguidos de Este X y Norte Y
-    patron = r"\b(\d{1,3})\s+(\d{6,7})\s+(\d{7})\b"
-    matches = re.findall(patron, texto)
+    # Formato B: vertice este norte huso (huso 18 o 19 al final de cada fila)
+    patron_b = r"\b(\d{1,3})\s+(\d{6,7})\s+(\d{6,7})\s+(1[89])\b"
+    matches_b = re.findall(patron_b, texto)
 
-    if not matches:
+    if matches_b:
+        vertice_dict = {}
+        for idx, este, norte, huso_fila in matches_b:
+            n = int(idx)
+            if n not in vertice_dict:
+                vertice_dict[n] = (int(este), int(norte), int(huso_fila))
+        vertices = [vertice_dict[k] for k in sorted(vertice_dict.keys())]
+        huso_m = vertices[0][2] if vertices else huso_global
+        log.info(f"    Vértices UTM extraídos: {len(vertices)} (Huso por fila: {huso_m})")
+        return [(e, n, h) for e, n, h in vertices]
+
+    # Formato A: vertice este norte (huso en encabezado)
+    patron_a = r"\b(\d{1,3})\s+(\d{6,7})\s+(\d{7})\b"
+    matches_a = re.findall(patron_a, texto)
+
+    if not matches_a:
         return []
 
-    # Deduplicar por índice de vértice (la tabla viene en dos columnas)
     vertice_dict = {}
-    for idx, este, norte in matches:
+    for idx, este, norte in matches_a:
         n = int(idx)
         if n not in vertice_dict:
             vertice_dict[n] = (int(este), int(norte))
 
-    # Ordenar por número de vértice
     vertices = [vertice_dict[k] for k in sorted(vertice_dict.keys())]
-    log.info(f"    Vértices UTM extraídos: {len(vertices)} (Huso {huso})")
-    return [(e, n, huso) for e, n in vertices]
+    log.info(f"    Vértices UTM extraídos: {len(vertices)} (Huso global {huso_global})")
+    return [(e, n, huso_global) for e, n in vertices]
 
 
 def utm_a_wgs84(vertices_utm: list) -> list:
-    """Convierte lista de (este, norte, huso) a [(lon, lat), ...]"""
     try:
         from pyproj import Transformer
     except ImportError:
@@ -193,8 +199,8 @@ def utm_a_wgs84(vertices_utm: list) -> list:
     for este, norte, huso in vertices_utm:
         try:
             transformer = Transformer.from_crs(
-                f"EPSG:{32700 + huso}",  # UTM Sur WGS84
-                "EPSG:4326",             # WGS84 lat/lon
+                f"EPSG:{32700 + huso}",
+                "EPSG:4326",
                 always_xy=True
             )
             lon, lat = transformer.transform(este, norte)
@@ -206,13 +212,9 @@ def utm_a_wgs84(vertices_utm: list) -> list:
 
 
 def generar_geojson(coords_wgs84: list, titulo: str, url_pdf: str, fecha: str) -> dict:
-    """Genera un GeoJSON Polygon desde coordenadas WGS84."""
     if not coords_wgs84:
         return {}
-
-    # Cerrar el polígono (repetir primer punto al final)
     ring = coords_wgs84 + [coords_wgs84[0]]
-
     return {
         "type": "FeatureCollection",
         "features": [{
@@ -232,7 +234,6 @@ def generar_geojson(coords_wgs84: list, titulo: str, url_pdf: str, fecha: str) -
 
 
 def guardar_geojson(geojson: dict, cve: str) -> str:
-    """Guarda el GeoJSON en docs/shapes/ y retorna la ruta relativa."""
     Path("docs/shapes").mkdir(parents=True, exist_ok=True)
     ruta = f"docs/shapes/{cve}.geojson"
     with open(ruta, "w", encoding="utf-8") as f:
@@ -242,32 +243,22 @@ def guardar_geojson(geojson: dict, cve: str) -> str:
 
 
 def extraer_cve(url: str) -> str:
-    """Extrae el CVE del nombre del PDF."""
     m = re.search(r"/(\d+)\.pdf", url)
     return m.group(1) if m else hashlib.md5(url.encode()).hexdigest()[:8]
 
 
-def procesar_coordenadas(texto: str, titulo: str, url: str, fecha: str) -> str | None:
-    """
-    Si el texto tiene coordenadas UTM, las extrae, convierte y guarda como GeoJSON.
-    Retorna la ruta relativa al GeoJSON o None si no hay coordenadas.
-    """
+def procesar_coordenadas(texto: str, titulo: str, url: str, fecha: str):
     vertices_utm = extraer_vertice_utm(texto)
     if not vertices_utm:
-        return None
-
+        return None, 0
     coords_wgs84 = utm_a_wgs84(vertices_utm)
     if not coords_wgs84:
-        return None
-
+        return None, 0
     geojson = generar_geojson(coords_wgs84, titulo, url, fecha)
     cve = extraer_cve(url)
-    return guardar_geojson(geojson, cve)
+    path = guardar_geojson(geojson, cve)
+    return path, len(coords_wgs84)
 
-
-# ─────────────────────────────────────────────
-#  EMAIL
-# ─────────────────────────────────────────────
 
 def enviar_email(publicaciones: list):
     asunto = (
@@ -285,22 +276,17 @@ def enviar_email(publicaciones: list):
         filas += f"""
         <tr>
           <td style="padding:10px 8px;border-bottom:1px solid #eee;">
-            <a href="{pub['url']}" style="color:#1a6b3a;font-weight:bold;text-decoration:none;">
-              {titulo[:200]}
-            </a>{geo}<br>
+            <a href="{pub['url']}" style="color:#1a6b3a;font-weight:bold;text-decoration:none;">{titulo[:200]}</a>{geo}<br>
             <small style="color:#888;">Fecha: {pub['fecha']} | Palabras clave: <em>{kws}</em></small>
           </td>
         </tr>"""
 
     html = f"""<html><body style="font-family:Arial,sans-serif;background:#f9f9f9;">
-      <div style="max-width:680px;margin:30px auto;background:#fff;padding:30px;
-                  border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);">
+      <div style="max-width:680px;margin:30px auto;background:#fff;padding:30px;border-radius:8px;">
         <h2 style="color:#1a6b3a;">GisLand.cl — Alerta Diario Oficial</h2>
         <p>{len(publicaciones)} publicacion(es) relevante(s) el {date.today().strftime('%d/%m/%Y')}:</p>
         <table width="100%" cellspacing="0" style="border-collapse:collapse;">{filas}</table>
-        <p style="font-size:12px;color:#aaa;margin-top:24px;">
-          Generado por <a href="https://gisland.cl" style="color:#1a6b3a;">GisLand.cl</a>
-        </p>
+        <p style="font-size:12px;color:#aaa;margin-top:24px;">Generado por <a href="https://gisland.cl" style="color:#1a6b3a;">GisLand.cl</a></p>
       </div></body></html>"""
 
     msg = MIMEMultipart("alternative")
@@ -317,10 +303,6 @@ def enviar_email(publicaciones: list):
     except Exception as e:
         log.error(f"❌ Error enviando email: {e}")
 
-
-# ─────────────────────────────────────────────
-#  FLUJO PRINCIPAL
-# ─────────────────────────────────────────────
 
 def ejecutar():
     log.info("=" * 50)
@@ -357,14 +339,12 @@ def ejecutar():
         pub["titulo"]   = titulo
         pub["keywords"] = kws
         log.info(f"    ✅ RELEVANTE: {titulo[:80]}")
-        log.info(f"       Keywords: {kws}")
 
-        # Intentar extraer coordenadas UTM
-        geojson_path = procesar_coordenadas(texto, titulo, pub["url"], pub["fecha"])
+        geojson_path, n_vertices = procesar_coordenadas(texto, titulo, pub["url"], pub["fecha"])
         if geojson_path:
             pub["geojson"]       = geojson_path
-            pub["vertice_count"] = len(extraer_vertice_utm(texto))
-            log.info(f"    🗺 GeoJSON generado: {geojson_path}")
+            pub["vertice_count"] = n_vertices
+            log.info(f"    🗺 GeoJSON: {geojson_path} ({n_vertices} vértices)")
 
         nuevas.append(pub)
 
