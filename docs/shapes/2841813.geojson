@@ -1,0 +1,41 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2841813 MINISTERIO DE AGRICULTURA S",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/24/44507/01/2841813.pdf",
+        "fecha": "2026-07-24",
+        "vertice_count": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -175.482878,
+              -38.646948
+            ],
+            [
+              -174.842619,
+              -38.749502
+            ],
+            [
+              -175.195256,
+              -38.043709
+            ],
+            [
+              -175.518516,
+              -38.259523
+            ],
+            [
+              -175.482878,
+              -38.646948
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
