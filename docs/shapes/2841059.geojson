@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "I SECCIÓN LEYES, REGLAMENTOS, DECRETOS Y RESOLUCIONES DE ORDEN GENERAL N",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/29/44511/01/2841059.pdf",
+        "fecha": "2026-07-29",
+        "vertice_count": 6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.609311,
+              -33.52108
+            ],
+            [
+              -71.555982,
+              -33.526845
+            ],
+            [
+              -71.567864,
+              -33.550383
+            ],
+            [
+              -71.561166,
+              -33.551117
+            ],
+            [
+              -71.562089,
+              -33.560484
+            ],
+            [
+              -71.628264,
+              -33.55191
+            ],
+            [
+              -71.609311,
+              -33.52108
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

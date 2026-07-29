@@ -1,5 +1,34 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/29/44511/01/2847578.pdf",
+    "fecha": "2026-07-29",
+    "titulo": "CVE 2847578 MINISTERIO DE HACIENDA DETERMINA EL COMPONENTE VARIABLE PARA EL CÁLCULO DEL IMPUESTO ESPECÍFICO ESTABLECIDO EN LA LEY N° 18.502 N",
+    "keywords": [
+      "utm"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/29/44511/01/2843491.pdf",
+    "fecha": "2026-07-29",
+    "titulo": "CVE 2843491 MINISTERIO DE VIVIENDA Y URBANISMO S",
+    "keywords": [
+      "polígono"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/29/44511/01/2841059.pdf",
+    "fecha": "2026-07-29",
+    "titulo": "I SECCIÓN LEYES, REGLAMENTOS, DECRETOS Y RESOLUCIONES DE ORDEN GENERAL N",
+    "keywords": [
+      "humedal",
+      "delimitación",
+      "utm",
+      "coordenadas"
+    ],
+    "geojson": "shapes/2841059.geojson",
+    "vertice_count": 6
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/07/28/44510/01/2841734.pdf",
     "fecha": "2026-07-28",
     "titulo": "CVE 2841734 MINISTERIO DE ECONOMÍA, FOMENTO Y TURISMO S",
