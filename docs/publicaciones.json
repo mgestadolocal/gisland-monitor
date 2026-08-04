@@ -1,5 +1,57 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/04/44516/01/2847847.pdf",
+    "fecha": "2026-08-04",
+    "titulo": "CVE 2847847 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2847847.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/04/44516/01/2847846.pdf",
+    "fecha": "2026-08-04",
+    "titulo": "CVE 2847846 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2847846.geojson",
+    "vertice_count": 1
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/04/44516/01/2848069.pdf",
+    "fecha": "2026-08-04",
+    "titulo": "CVE 2848069 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2848069.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/04/44516/01/2848068.pdf",
+    "fecha": "2026-08-04",
+    "titulo": "CVE 2848068 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2848068.geojson",
+    "vertice_count": 1
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/03/44515/01/2848039.pdf",
     "fecha": "2026-08-03",
     "titulo": "CVE 2848039 MINISTERIO DEL MEDIO AMBIENTE S",
