@@ -1,5 +1,24 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/20/44529/01/2853835.pdf",
+    "fecha": "2026-08-20",
+    "titulo": "CVE 2853835 MINISTERIO DE ECONOMÍA, FOMENTO Y TURISMO S",
+    "keywords": [
+      "polígono",
+      "delimitación",
+      "coordenadas",
+      "vértices"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/20/44529/01/2854506.pdf",
+    "fecha": "2026-08-20",
+    "titulo": "CVE 2854506 MINISTERIO DE SEGURIDAD PÚBLICA S",
+    "keywords": [
+      "utm"
+    ]
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/19/44528/01/2858353.pdf",
     "fecha": "2026-08-19",
     "titulo": "CVE 2858353 MINISTERIO DE HACIENDA DETERMINA EL COMPONENTE VARIABLE PARA EL CÁLCULO DEL IMPUESTO ESPECÍFICO ESTABLECIDO EN LA LEY N° 18.502 N",
