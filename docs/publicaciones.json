@@ -1,5 +1,31 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/21/44530/01/2854335.pdf",
+    "fecha": "2026-08-21",
+    "titulo": "CVE 2854335 MINISTERIO DEL INTERIOR S",
+    "keywords": [
+      "coordenadas"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/21/44530/01/2854054.pdf",
+    "fecha": "2026-08-21",
+    "titulo": "CVE 2854054 MINISTERIO DE LAS CULTURAS, LAS ARTES Y EL PATRIMONIO S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/21/44530/01/2854055.pdf",
+    "fecha": "2026-08-21",
+    "titulo": "CVE 2854055 MINISTERIO DE LAS CULTURAS, LAS ARTES Y EL PATRIMONIO S",
+    "keywords": [
+      "polígono"
+    ]
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/08/20/44529/01/2853835.pdf",
     "fecha": "2026-08-20",
     "titulo": "CVE 2853835 MINISTERIO DE ECONOMÍA, FOMENTO Y TURISMO S",
