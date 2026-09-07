@@ -1,5 +1,31 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/07/44544/01/2866018.pdf",
+    "fecha": "2026-09-07",
+    "titulo": "CVE 2866018 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2866018.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/07/44544/01/2866017.pdf",
+    "fecha": "2026-09-07",
+    "titulo": "CVE 2866017 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2866017.geojson",
+    "vertice_count": 2
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/04/44542/01/2863871.pdf",
     "fecha": "2026-09-04",
     "titulo": "MINISTERIO DE TRANSPORTES Y TELECOMUNICACIONES S",

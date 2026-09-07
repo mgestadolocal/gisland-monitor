@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2866017 MINISTERIO DE AGRICULTURA S",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/07/44544/01/2866017.pdf",
+        "fecha": "2026-09-07",
+        "vertice_count": 2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.47679,
+              -33.762242
+            ],
+            [
+              -70.497065,
+              -33.771404
+            ],
+            [
+              -76.47679,
+              -33.762242
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
