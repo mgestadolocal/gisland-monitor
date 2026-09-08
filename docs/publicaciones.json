@@ -1,5 +1,77 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2864507.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2864507 MINISTERIO DE ECONOMÍA, FOMENTO Y TURISMO S",
+    "keywords": [
+      "polígono",
+      "delimitación",
+      "coordenadas",
+      "vértices"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2864515.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2864515 MINISTERIO DE ECONOMÍA, FOMENTO Y TURISMO S",
+    "keywords": [
+      "polígono",
+      "delimitación",
+      "coordenadas",
+      "vértices"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2864519.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2864519 MINISTERIO DE ECONOMÍA, FOMENTO Y TURISMO S",
+    "keywords": [
+      "polígono",
+      "delimitación",
+      "coordenadas",
+      "vértices"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2865107.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2865107 MINISTERIO DE VIVIENDA Y URBANISMO MODIFICA LA RESOLUCIÓN N° 1.029 EXENTA (V. Y U.), DE FECHA 10 DE JULIO DE 2026, QUE LLAMA A PROCESO DE SELECCIÓN EN CONDICIONES ESPECIALES PARA EL OTORGAMIENTO DE SUBSIDIOS HABITACIONALES DEL TÍTULO I, C",
+    "keywords": [
+      "plan de manejo"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2865190.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2865190 MINISTERIO DE VIVIENDA Y URBANISMO S",
+    "keywords": [
+      "cartografía"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2864758.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2864758 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2864758.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/08/44545/01/2864107.pdf",
+    "fecha": "2026-09-08",
+    "titulo": "CVE 2864107 MINISTERIO DE LAS CULTURAS, LAS ARTES Y EL PATRIMONIO S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas"
+    ]
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/07/44544/01/2866018.pdf",
     "fecha": "2026-09-07",
     "titulo": "CVE 2866018 MINISTERIO DE AGRICULTURA S",
