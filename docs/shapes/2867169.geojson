@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2867169 MINISTERIO DE AGRICULTURA S",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/10/44547/01/2867169.pdf",
+        "fecha": "2026-09-10",
+        "vertice_count": 2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.762604,
+              -19.248323
+            ],
+            [
+              -69.759505,
+              -19.25317
+            ],
+            [
+              -75.762604,
+              -19.248323
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
