@@ -1,5 +1,18 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/11/44548/01/2867686.pdf",
+    "fecha": "2026-09-11",
+    "titulo": "CVE 2867686 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2867686.geojson",
+    "vertice_count": 2
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/10/44547/01/2866999.pdf",
     "fecha": "2026-09-10",
     "titulo": "CVE 2866999 MINISTERIO DE AGRICULTURA S",
