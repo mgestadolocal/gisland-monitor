@@ -1,5 +1,88 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2872024.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "CVE 2872024 MINISTERIO DEL INTERIOR D",
+    "keywords": [
+      "coordenadas"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2876880.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "CVE 2876880 MINISTERIO DE HACIENDA DETERMINA EL COMPONENTE VARIABLE PARA EL CÁLCULO DEL IMPUESTO ESPECÍFICO ESTABLECIDO EN LA LEY N° 18.502 N",
+    "keywords": [
+      "utm"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2867859.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "I SECCIÓN LEYES, REGLAMENTOS, DECRETOS Y RESOLUCIONES DE ORDEN GENERAL N",
+    "keywords": [
+      "humedal",
+      "polígono",
+      "cartografia",
+      "snaspe",
+      "aguas subterráneas",
+      "sector hidrogeológico",
+      "recursos hídricos"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2873667.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "CVE 2873667 MINISTERIO DE OBRAS PÚBLICAS D",
+    "keywords": [
+      "humedal",
+      "zona de prohibición",
+      "aguas subterráneas",
+      "sector hidrogeológico",
+      "recursos hídricos",
+      "utm",
+      "coordenadas"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2870736.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "CVE 2870736 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2870736.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2870737.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "CVE 2870737 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2870737.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/23/44556/01/2870735.pdf",
+    "fecha": "2026-09-23",
+    "titulo": "CVE 2870735 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2870735.geojson",
+    "vertice_count": 2
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/22/44555/01/2870731.pdf",
     "fecha": "2026-09-22",
     "titulo": "CVE 2870731 MINISTERIO DE DESARROLLO SOCIAL Y FAMILIA S",
