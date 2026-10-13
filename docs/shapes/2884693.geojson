@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2884693 MINISTERIO DEL MEDIO AMBIENTE DA CUMPLIMIENTO A SENTENCIA DEL ILUSTRE SEGUNDO TRIBUNAL AMBIENTAL DE FECHA 3 DE JULIO DE 2025 EN AUTOS ROL R-459-2024, Y RESUELVE RECURSO DE REPOSICIÓN QUE INDICA (R",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/13/44572/01/2884693.pdf",
+        "fecha": "2026-10-13",
+        "vertice_count": 12
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.503912,
+              -33.025175
+            ],
+            [
+              -71.50508,
+              -33.027514
+            ],
+            [
+              -71.507163,
+              -33.029627
+            ],
+            [
+              -71.509448,
+              -33.030185
+            ],
+            [
+              -71.511589,
+              -33.030566
+            ],
+            [
+              -71.512439,
+              -33.031838
+            ],
+            [
+              -71.513336,
+              -33.033263
+            ],
+            [
+              -71.515198,
+              -33.033991
+            ],
+            [
+              -71.512648,
+              -33.034665
+            ],
+            [
+              -71.510818,
+              -33.035459
+            ],
+            [
+              -71.507778,
+              -33.037333
+            ],
+            [
+              -71.50722,
+              -33.034666
+            ],
+            [
+              -71.503912,
+              -33.025175
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

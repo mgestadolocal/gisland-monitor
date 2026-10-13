@@ -1,5 +1,21 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/13/44572/01/2884693.pdf",
+    "fecha": "2026-10-13",
+    "titulo": "CVE 2884693 MINISTERIO DEL MEDIO AMBIENTE DA CUMPLIMIENTO A SENTENCIA DEL ILUSTRE SEGUNDO TRIBUNAL AMBIENTAL DE FECHA 3 DE JULIO DE 2025 EN AUTOS ROL R-459-2024, Y RESUELVE RECURSO DE REPOSICIÓN QUE INDICA (R",
+    "keywords": [
+      "humedal",
+      "polígono",
+      "cartografía",
+      "delimitación",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2884693.geojson",
+    "vertice_count": 12
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/09/44570/01/2884114.pdf",
     "fecha": "2026-10-09",
     "titulo": "CVE 2884114 MINISTERIO DE SEGURIDAD PÚBLICA A",
