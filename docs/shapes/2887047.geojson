@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2887047 MINISTERIO DE AGRICULTURA S",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/23/44581/01/2887047.pdf",
+        "fecha": "2026-10-23",
+        "vertice_count": 2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.303131,
+              -27.481145
+            ],
+            [
+              -70.315236,
+              -27.477719
+            ],
+            [
+              -76.303131,
+              -27.481145
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

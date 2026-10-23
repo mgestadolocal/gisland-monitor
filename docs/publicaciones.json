@@ -1,5 +1,57 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/23/44581/01/2887048.pdf",
+    "fecha": "2026-10-23",
+    "titulo": "CVE 2887048 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2887048.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/23/44581/01/2887049.pdf",
+    "fecha": "2026-10-23",
+    "titulo": "CVE 2887049 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2887049.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/23/44581/01/2887047.pdf",
+    "fecha": "2026-10-23",
+    "titulo": "CVE 2887047 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2887047.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/23/44581/01/2887046.pdf",
+    "fecha": "2026-10-23",
+    "titulo": "CVE 2887046 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2887046.geojson",
+    "vertice_count": 2
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/22/44580/01/2889364.pdf",
     "fecha": "2026-10-22",
     "titulo": "CVE 2889364 MINISTERIO DE VIVIENDA Y URBANISMO S",
