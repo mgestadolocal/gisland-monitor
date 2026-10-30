@@ -1,5 +1,39 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/30/44587/01/2893005.pdf",
+    "fecha": "2026-10-30",
+    "titulo": "CVE 2893005 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2893005.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/30/44587/01/2893004.pdf",
+    "fecha": "2026-10-30",
+    "titulo": "CVE 2893004 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2893004.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/30/44587/01/2892387.pdf",
+    "fecha": "2026-10-30",
+    "titulo": "CVE 2892387 MUNICIPALIDAD DE RÍO CLARO APRUEBA ORDENANZA MUNICIPAL SOBRE DERECHOS DE ASEO DOMICILIARIO DE LA COMUNA DE RÍO CLARO N",
+    "keywords": [
+      "utm"
+    ]
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/29/44586/01/2892208.pdf",
     "fecha": "2026-10-29",
     "titulo": "CVE 2892208 MINISTERIO DE ENERGÍA MODIFICA DECRETO SUPREMO Nº 114, DE 2013, DEL MINISTERIO DE ENERGÍA, QUE APRUEBA NUEVO REGLAMENTO PARA LA APLICACIÓN DE LA LEY Nº 19.657, SOBRE CONCESIONES DE ENERGÍA GEOTÉRMICA Y DEROGA DECRETO Nº 32, DE 2004, DEL M",

@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2893004 MINISTERIO DE AGRICULTURA S",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/10/30/44587/01/2893004.pdf",
+        "fecha": "2026-10-30",
+        "vertice_count": 2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.189369,
+              -30.326578
+            ],
+            [
+              -71.238547,
+              -30.329471
+            ],
+            [
+              -77.189369,
+              -30.326578
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
