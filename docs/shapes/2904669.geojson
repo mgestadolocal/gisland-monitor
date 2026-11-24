@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "titulo": "CVE 2904669 MINISTERIO DE AGRICULTURA S",
+        "fuente": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2904669.pdf",
+        "fecha": "2026-11-23",
+        "vertice_count": 2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.558333,
+              -33.587839
+            ],
+            [
+              -70.560901,
+              -33.594579
+            ],
+            [
+              -76.558333,
+              -33.587839
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

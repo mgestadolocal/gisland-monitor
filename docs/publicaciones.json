@@ -1,5 +1,60 @@
 [
   {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2904581.pdf",
+    "fecha": "2026-11-23",
+    "titulo": "CVE 2904581 MINISTERIO DE VIVIENDA Y URBANISMO S",
+    "keywords": [
+      "polígono"
+    ]
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2904669.pdf",
+    "fecha": "2026-11-23",
+    "titulo": "CVE 2904669 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2904669.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2904679.pdf",
+    "fecha": "2026-11-23",
+    "titulo": "CVE 2904679 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2904679.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2902444.pdf",
+    "fecha": "2026-11-23",
+    "titulo": "CVE 2902444 MINISTERIO DE AGRICULTURA S",
+    "keywords": [
+      "polígono",
+      "utm",
+      "coordenadas",
+      "vértices"
+    ],
+    "geojson": "shapes/2902444.geojson",
+    "vertice_count": 2
+  },
+  {
+    "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2902499.pdf",
+    "fecha": "2026-11-23",
+    "titulo": "CVE 2902499 MUNICIPALIDAD DE VILLARRICA APRUEBA ACTUALIZACIÓN DE PLAN DE INVERSIONES EN INFRAESTRUCTURA DE MOVILIDAD Y ESPACIO PÚBLICO N",
+    "keywords": [
+      "polígono"
+    ]
+  },
+  {
     "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/18/44602/01/2905428.pdf",
     "fecha": "2026-11-18",
     "titulo": "CVE 2905428 MINISTERIO DE HACIENDA DETERMINA EL COMPONENTE VARIABLE PARA EL CÁLCULO DEL IMPUESTO ESPECÍFICO ESTABLECIDO EN LA LEY N° 18.502 N",
